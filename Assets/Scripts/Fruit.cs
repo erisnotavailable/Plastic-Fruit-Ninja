@@ -6,9 +6,12 @@ public class Fruit : MonoBehaviour
 {
     // Global Vars
     public GlobalVars.FruitType type;
-    public Sprite raw;
+    public float minScale = 0.3f;
+    public float maxScale = 0.5f;
     private string nameInit = "W";
     private bool hasCut = false;
+    private Sprite raw;
+    private Sprite cut;
 
     // Start is called before the first frame update
     void Start()
@@ -19,11 +22,13 @@ public class Fruit : MonoBehaviour
         nameInit = type.ToString().ToLower().Substring(0, 1);
         Debug.Log("Initial: " + nameInit);
         // load and change fruit's sprite
-        // Sprite raw = Resources.Load<Sprite>("Sprites/" + type.ToString().ToLower());
-        Sprite raw = Resources.Load<Sprite>("watermelon");
+        raw = Resources.Load<Sprite>(type.ToString().ToLower());
+        cut = Resources.Load<Sprite>(type.ToString().ToLower() + "_cut");
         GetComponent<SpriteRenderer>().sprite = raw;
-        this.gameObject.GetComponent<SpriteRenderer>().enabled = true;
         Debug.Log("Sprites/" + type.ToString().ToLower());
+        // scale down the sprite
+        float scale = Random.Range(minScale, maxScale);
+        GetComponent<Transform>().localScale = new Vector3(scale, scale, scale);
     }
 
     // Update is called once per frame
@@ -35,6 +40,7 @@ public class Fruit : MonoBehaviour
             if (Input.GetKeyDown(nameInit.ToLower()))
             {
                 hasCut = true;
+                GetComponent<SpriteRenderer>().sprite = cut;
                 Debug.Log("Correct");
             }
             else if (Input.GetKeyDown(KeyCode.W) ||

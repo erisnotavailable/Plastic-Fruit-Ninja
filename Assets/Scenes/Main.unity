@@ -272,7 +272,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!68 &366639877
 EdgeCollider2D:
@@ -414,7 +414,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &705766706
 MonoBehaviour:
@@ -429,8 +429,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fruitList: {fileID: 1989051766}
-  launchVelocity_x: 400
-  launchVelocity_y: 400
+  velocityXMin: 300
+  velocityXMax: 700
+  velocityYMin: 300
+  velocityYMax: 700
 --- !u!1 &1023938110
 GameObject:
   m_ObjectHideFlags: 0
@@ -487,7 +489,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -5
   m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
   m_Color: {r: 0.8773585, g: 0.6077049, b: 0.33521718, a: 1}
   m_FlipX: 0
@@ -511,7 +513,7 @@ Transform:
   m_LocalScale: {x: 15.640165, y: 10.271979, z: 5.3907}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1101795311
 GameObject:
@@ -678,7 +680,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
-  m_Color: {r: 0.23349057, g: 0.78551644, b: 0.9339623, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -700,7 +702,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &1989051770
 CircleCollider2D:
@@ -730,3 +732,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e37e2f82fdf00d70e9dd0ae5252cc11b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
+  minScale: 0.3
+  maxScale: 0.5
