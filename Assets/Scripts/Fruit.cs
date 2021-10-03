@@ -5,7 +5,9 @@ using UnityEngine;
 public class Fruit : MonoBehaviour
 {
     // Global Vars
-    public string nameInit = "W";
+    public GlobalVars.FruitType type;
+    public Sprite raw;
+    private string nameInit = "W";
     private bool hasCut = false;
 
     // Start is called before the first frame update
@@ -13,6 +15,15 @@ public class Fruit : MonoBehaviour
     {
         FruitLauncher parentScript = GameObject.Find("FruitLauncher").GetComponent<FruitLauncher>();
         parentScript.numOfChildIncrement();
+        // assign fruit's name
+        nameInit = type.ToString().ToLower().Substring(0, 1);
+        Debug.Log("Initial: " + nameInit);
+        // load and change fruit's sprite
+        // Sprite raw = Resources.Load<Sprite>("Sprites/" + type.ToString().ToLower());
+        Sprite raw = Resources.Load<Sprite>("watermelon");
+        GetComponent<SpriteRenderer>().sprite = raw;
+        this.gameObject.GetComponent<SpriteRenderer>().enabled = true;
+        Debug.Log("Sprites/" + type.ToString().ToLower());
     }
 
     // Update is called once per frame

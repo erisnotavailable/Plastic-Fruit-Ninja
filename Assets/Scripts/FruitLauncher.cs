@@ -28,7 +28,7 @@ public class FruitLauncher : MonoBehaviour
                 transform.position, transform.rotation);
             fruit.GetComponent<Renderer>().enabled = true;
             fruit.GetComponent<Fruit>().enabled = true;
-            fruit.GetComponent<Fruit>().nameInit = "w";
+            fruit.GetComponent<Fruit>().type = (GlobalVars.FruitType)Random.Range(0, System.Enum.GetValues(typeof(GlobalVars.FruitType)).Length);
             fruit.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
             fruit.GetComponent<Rigidbody2D>().AddRelativeForce(new Vector2(
                 Random.Range(velocityXMin, velocityXMax), Random.Range(velocityYMin, velocityYMax)));
