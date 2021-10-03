@@ -10,8 +10,11 @@ public class Fruit : MonoBehaviour
     public float maxScale = 0.5f;
     private string nameInit = "W";
     private bool hasCut = false;
+    private bool correct = true;
     private Sprite raw;
     private Sprite cut;
+    private float label_x = 0;
+    private float label_y = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -49,8 +52,28 @@ public class Fruit : MonoBehaviour
               Input.GetKeyDown(KeyCode.D))
             {
                 hasCut = true;
+                correct = false;
                 Debug.Log("Incorrect");
             }
+        }
+    }
+
+    void OnGUI()
+    {
+        if (!correct && hasCut)
+        {
+            if (label_x == 0)
+            {
+                var position = Camera.main.WorldToScreenPoint(gameObject.transform.position);
+                label_x = position.x;
+                label_y = position.y;
+            }
+            GUI.Label(new Rect(
+                label_x,
+                Screen.height - label_y,
+                200,
+                100
+            ), "Missed", GlobalVars.style);
         }
     }
 

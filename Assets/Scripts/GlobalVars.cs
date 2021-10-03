@@ -12,4 +12,8 @@ public class GlobalVars
         Strawberry,
         DragonFruit
     };
+
+    public static GUIStyle style = new GUIStyle() {
+        fontSize = 32
+    };
 }
